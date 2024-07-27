@@ -2,7 +2,6 @@
 
 import nodemailer from 'nodemailer';
 import {EmailContent, EmailProductInfo, NotificationType} from '@/types';
-import { error } from 'console';
 
 export const THRESHOLD_PERCENTAGE=40;
 
@@ -106,7 +105,7 @@ export async function generateEmailBody(
     }
     transporter.sendMail(mailOptions,(error:any, info:any)=>{
       if(error) return console.log(error);
-      console.log('Email sent : ', info)
+      //console.log('Email sent : ', info)
     })
 
   }
