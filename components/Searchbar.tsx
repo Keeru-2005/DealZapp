@@ -1,6 +1,7 @@
 "use client"
 
 import { scrapeAndStoreProduct } from '@/lib/actions';
+import { redirect } from 'next/dist/server/api-utils';
 import { FormEvent, useState } from 'react'
 
 const isValidAmazonProductURL = (url: string) => {
@@ -38,6 +39,7 @@ const Searchbar = () => {
 
       // Scrape the product page
       const product = await scrapeAndStoreProduct(searchPrompt);
+      redirect("")
     } catch (error) {
       console.log(error);
     } finally {

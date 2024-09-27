@@ -40,7 +40,7 @@ const ProductDetails = async ({params:{id}}:Props) => {
 
   return (
     <div className='product-container'>
-        <div className='flex gap-28 xl:flex-row flex-col'>
+        <div className='flex gap-28 flex-row flex-col'>
             <div className='product-image'>
                 <Image 
                 src={product.image}
@@ -66,7 +66,7 @@ const ProductDetails = async ({params:{id}}:Props) => {
                     <div className='flex items-center gap-3'>
                         <div className='product-hearts'>
                             <Image 
-                            src='/asstes/icons/red-heart.svg'
+                            src="/assets/icons/redheart.svg"
                             alt="heart"
                             width={20}
                             height={20}
@@ -114,7 +114,7 @@ const ProductDetails = async ({params:{id}}:Props) => {
                              height={16}
                             />
                             <p className='text-sm text-primary-orange font-semibold'>
-                                {product.stars || '25'}
+                                {product.stars || product.reviewsCount}
                             </p>
                         </div>
                         <div className='product-reviews'>
@@ -129,9 +129,9 @@ const ProductDetails = async ({params:{id}}:Props) => {
                             </p>
                         </div>
                     </div>
-                    <p className='text-sm text-black opacity-50'>
+                    {/* <p className='text-sm text-black opacity-50'>
                         <span className='text-primary-green font-semibold'>93%</span> of buyers have recommended this.
-                    </p>
+                    </p> */}
                 </div>
             </div>
             
@@ -152,13 +152,13 @@ const ProductDetails = async ({params:{id}}:Props) => {
                     <PriceInfoCard
                     title="Highest Price"
                     iconSrc="/assets/icons/arrow-up.svg"
-                    value={ `${product.currency} ${formatNumber(product.lowestPrice)}`}
+                    value={ `${product.currency} ${formatNumber(product.highestPrice)}`}
                     
                     />
                     <PriceInfoCard
                     title="Lowest Price"
                     iconSrc="/assets/icons/arrow-down.svg"
-                    value={ `${product.currency} ${formatNumber(product.currentPrice)}`}
+                    value={ `${product.currency} ${formatNumber(product.lowestPrice)}`}
                     
                     />
 
@@ -186,7 +186,7 @@ const ProductDetails = async ({params:{id}}:Props) => {
             width={22}
             height={22}
             />
-            <Link href='/' className='text-base text-white'>
+            <Link href={product.url} className='text-base text-white'>
                 Buy Now
             </Link>
         </button>

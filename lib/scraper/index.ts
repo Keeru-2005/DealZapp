@@ -29,6 +29,7 @@ export async function scrapeAmazonProduct(url: string)
             $('.priceToPay span.a-price-whole'),
             $('a.size.base.a-colour-price'),
             $('.a-button-selected .a-colour-base')
+
     );
 
         const originalPrice = extractPrice(
@@ -40,7 +41,7 @@ export async function scrapeAmazonProduct(url: string)
 
         const outOfStock = $('#availability span').text().trim().toLowerCase
         () === 'currently unavailable';
-
+        //const rating=$('span.a-size-base span.a-color-base')//class="a-size-base a-color-base"
         const images= $('#imgBlkFront').attr('data-a-dynamic-image') || 
                      $('#landingImage').attr('data-a-dynamic-image')||
                      '{}' 
