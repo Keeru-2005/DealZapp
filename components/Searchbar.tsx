@@ -39,7 +39,7 @@ const Searchbar = () => {
 
       // Scrape the product page
       const product = await scrapeAndStoreProduct(searchPrompt);
-      redirect("")
+      //redirect("")
     } catch (error) {
       console.log(error);
     } finally {
